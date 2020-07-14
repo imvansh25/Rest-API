@@ -91,8 +91,8 @@ def meme(image_name,text,newName):
     draw = ImageDraw.Draw(imageWithWhiteSpace)
 
     draw.text(getTopLeftCorner(draw, lines, font, imageWithWhiteSpace), lines, fill=blackColor, font=font, align="left")
-    imageWithWhiteSpace.save(f"{newName}.png")
-    print("Saved as " + f"{newName}.png")
+    imageWithWhiteSpace.save(f"{newName}")
+    print("Saved as " + f"{newName}")
 
 
 # In[53]:

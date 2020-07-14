@@ -15,14 +15,14 @@ app=Flask(__name__)
 @app.route('/dankcli-meme',methods=['GET','POST'])
 def dankcli():
 	n = random_no()
-	format_ = '.jpg'
+	format_ = '.png'
 	name = "Heading_on_image"+n+format_
 
 	url = request.json['URL']
 	text = request.json['Text']
 	img = imageio.imread(url)
-	plt.imsave(name,img)
-	converted_img = meme(name,text,name)
+	plt.imsave("1"+name,img)
+	converted_img = meme("1"+name,text,name)
 	upload("/.Generated/"+name,name)
 	link = get_url("/.Generated/"+name)
 	return link
