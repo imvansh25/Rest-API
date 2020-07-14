@@ -15,8 +15,8 @@ def generate_meme(image_path, top_text, bottom_text='', font_path='impact.ttf', 
 	font = ImageFont.truetype(font=font_path, size=int(image_height*font_size)//100)
 
 	# convert text to uppercase
-	top_text = top_text.upper()
-	bottom_text = bottom_text.upper()
+	#top_text = top_text.upper()
+	#bottom_text = bottom_text.upper()
 
 	# text wrapping
 	char_width, char_height = font.getsize('A')

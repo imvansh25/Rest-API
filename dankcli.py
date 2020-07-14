@@ -9,6 +9,7 @@ import math
 import os
 import datetime
 import sys
+import textwrap
 
 
 TOP_PADDING = 10
@@ -37,7 +38,7 @@ def getTopLeftCorner(draw, lines, font, img):
 
 # Text wrapper function to wrap text to new line if line gets longer than image width
 def textWrap(text, font, max_width):
-    lines = []
+    """lines = []
 
     if font.getsize(text)[0] < max_width:
         lines.append(text) 
@@ -57,7 +58,11 @@ def textWrap(text, font, max_width):
             # when the line gets longer than the max width do not append the word, 
             # add the line to the lines array
             lines.append(line)    
-    return '\n'.join(lines)
+    return '\n'.join(lines)"""
+    char_width, char_height = font.getsize('A')
+    chars_per_line = max_width // char_width
+    top_lines = textwrap.wrap(text, width=chars_per_line, replace_whitespace=False)
+    return '\n'.join(top_lines)
 
 def getWhiteSpaceHeight(lines, font):
     lineNos = len(lines.split('\n'))
@@ -78,9 +83,9 @@ def meme(image_name,text,newName):
     blackColor = "rgb(0, 0, 0)"
     img = Image.open(image_name)
     Width, Height = img.size
-    lines = text.replace("\\n", "\n")
     font_path = os.path.join("arial.ttf")
     font = ImageFont.truetype(font_path, size=getFontSize(img))
+    lines = textWrap(text,font,Width)
     imageWithWhiteSpace = Image.new("RGBA",( Width, Height + getWhiteSpaceHeight(lines, font) ),whiteColor)
     imageWithWhiteSpace.paste(img, (0, getWhiteSpaceHeight(lines, font)))
     draw = ImageDraw.Draw(imageWithWhiteSpace)
@@ -93,7 +98,6 @@ def meme(image_name,text,newName):
 # In[53]:
 
 
-
 # In[ ]:
 
 
@@ -113,7 +117,3 @@ def meme(image_name,text,newName):
 
 
 # In[ ]:
-
-
-
-
