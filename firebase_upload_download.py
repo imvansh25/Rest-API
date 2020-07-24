@@ -1,13 +1,13 @@
 import pyrebase
 config = {
-	"apiKey": "AIzaSyC1UXihvuI2vdkapG7Uy80LOd16K6YUcrc",
-    "authDomain": "meme-generator-cfdc0.firebaseapp.com",
-    "databaseURL": "https://meme-generator-cfdc0.firebaseio.com",
-    "projectId": "meme-generator-cfdc0",
-    "storageBucket": "meme-generator-cfdc0.appspot.com",
-    "messagingSenderId": "937239795623",
-    "appId": "1:937239795623:web:955bee20c96239dd268882",
-    "measurementId": "G-YJR2HVJBBX"
+	"apiKey": "AIzaSyCp3jtcln4foYgcd-vR0zgXRIDFKrMz2UY",
+    "authDomain": "picameme-3c3a9.firebaseapp.com",
+    "databaseURL": "https://picameme-3c3a9.firebaseio.com",
+    "projectId": "picameme-3c3a9",
+    "storageBucket": "picameme-3c3a9.appspot.com",
+    "messagingSenderId": "727804947779",
+    "appId": "1:727804947779:web:7caa6214c0f4ecfdbcd3f6",
+    "measurementId": "G-HYHTPVCW43"
     }
 
 firebase = pyrebase.initialize_app(config)
