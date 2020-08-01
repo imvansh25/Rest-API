@@ -14,7 +14,8 @@ firebase = pyrebase.initialize_app(config)
 storage = firebase.storage()
 
 def upload(path_on_cloud,path_local):
-	storage.child(path_on_cloud).put(path_local)
+    storage.child(path_on_cloud).put(path_local)
+    return get_url(path_on_cloud)
 
 def download(path_on_cloud,path_local):
 	storage.child(path_on_cloud).download(path_local)

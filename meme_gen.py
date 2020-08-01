@@ -2,12 +2,11 @@ from PIL import Image, ImageDraw, ImageFont
 import textwrap
 import imageio 
 import matplotlib.pyplot as plt
+import numpy as np
 
-def generate_meme(image_path, top_text, bottom_text='', font_path='impact.ttf', font_size=9):
+def generate_meme(img, top_text='', bottom_text='', font_path='impact.ttf', font_size=9):
 	# load image
-	img = imageio.imread(image_path)
-	plt.imsave("Input.jpg",img)
-	im = Image.open("Input.jpg")
+	im = Image.fromarray(np.uint8(img))
 	draw = ImageDraw.Draw(im)
 	image_width, image_height = im.size
 	
@@ -29,7 +28,7 @@ def generate_meme(image_path, top_text, bottom_text='', font_path='impact.ttf', 
 	for line in top_lines:
 	    line_width, line_height = font.getsize(line)
 	    x = (image_width - line_width)/2
-	    draw.text((x,y), line, fill='white', font=font)
+	    draw.text((x,y), line, fill='black', font=font)
 	    y += line_height
 
 	# draw bottom lines
@@ -37,9 +36,8 @@ def generate_meme(image_path, top_text, bottom_text='', font_path='impact.ttf', 
 	for line in bottom_lines:
 	    line_width, line_height = font.getsize(line)
 	    x = (image_width - line_width)/2
-	    draw.text((x,y), line, fill='white', font=font)
+	    draw.text((x,y), line, fill='black', font=font)
 	    y += line_height
 
 	# save meme
-	im.save('meme.jpg')
-	return "meme.jpg"
+	return np.array(im)

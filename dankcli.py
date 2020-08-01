@@ -10,6 +10,7 @@ import os
 import datetime
 import sys
 import textwrap
+import numpy as np
 
 
 TOP_PADDING = 10
@@ -78,10 +79,10 @@ def getFileName():
 # In[52]:
 
 
-def meme(image_name,text,newName):
+def meme(img,text):
     whiteColor = "rgb(255, 255, 255)"
     blackColor = "rgb(0, 0, 0)"
-    img = Image.open(image_name)
+    img = Image.fromarray(np.uint8(img))
     Width, Height = img.size
     font_path = os.path.join("arial.ttf")
     font = ImageFont.truetype(font_path, size=getFontSize(img))
@@ -91,8 +92,7 @@ def meme(image_name,text,newName):
     draw = ImageDraw.Draw(imageWithWhiteSpace)
 
     draw.text(getTopLeftCorner(draw, lines, font, imageWithWhiteSpace), lines, fill=blackColor, font=font, align="left")
-    imageWithWhiteSpace.save(f"{newName}")
-    print("Saved as " + f"{newName}")
+    return np.array(imageWithWhiteSpace)
 
 
 # In[53]:
