@@ -42,7 +42,7 @@ def mem_gen():
 
 	img = imageio.imread(url)
 
-	plt.imsave(name,generate_meme(img,top_text,bottom_text,c))
+	plt.imsave(name,generate_meme(c,img,top_text,bottom_text))
 
 	link = upload("/.Generated/"+name,name)
 	

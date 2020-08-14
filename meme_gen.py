@@ -4,7 +4,7 @@ import imageio
 import matplotlib.pyplot as plt
 import numpy as np
 
-def generate_meme(img, top_text='', bottom_text='', font_path='impact.ttf', font_size=9,c):
+def generate_meme(c,img, top_text='', bottom_text='', font_path='impact.ttf', font_size=9):
 	# load image
 	im = Image.fromarray(np.uint8(img))
 	draw = ImageDraw.Draw(im)
