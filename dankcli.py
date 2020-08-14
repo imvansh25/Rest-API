@@ -86,7 +86,12 @@ def meme(img,text,c):
     font_path = os.path.join("arial.ttf")
     font = ImageFont.truetype(font_path, size=getFontSize(img))
     lines = textWrap(text,font,Width)
-    imageWithWhiteSpace = Image.new("RGBA",( Width, Height + getWhiteSpaceHeight(lines, font) ),whiteColor)
+    arr = ['D','E','F']
+    space_color = "#FFFFFF"
+    print(c[0],c[2],c[4])
+    if c[1] in arr and c[3] in arr and c[5] in arr:
+    	space_color = "#000000"
+    imageWithWhiteSpace = Image.new("RGBA",( Width, Height + getWhiteSpaceHeight(lines, font) ),color = space_color)
     imageWithWhiteSpace.paste(img, (0, getWhiteSpaceHeight(lines, font)))
     draw = ImageDraw.Draw(imageWithWhiteSpace)
 
