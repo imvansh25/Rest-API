@@ -79,9 +79,8 @@ def getFileName():
 # In[52]:
 
 
-def meme(img,text):
+def meme(img,text,c):
     whiteColor = "rgb(255, 255, 255)"
-    blackColor = "rgb(0, 0, 0)"
     img = Image.fromarray(np.uint8(img))
     Width, Height = img.size
     font_path = os.path.join("arial.ttf")
@@ -91,7 +90,7 @@ def meme(img,text):
     imageWithWhiteSpace.paste(img, (0, getWhiteSpaceHeight(lines, font)))
     draw = ImageDraw.Draw(imageWithWhiteSpace)
 
-    draw.text(getTopLeftCorner(draw, lines, font, imageWithWhiteSpace), lines, fill=blackColor, font=font, align="left")
+    draw.text(getTopLeftCorner(draw, lines, font, imageWithWhiteSpace), lines, fill=c, font=font, align="left")
     return np.array(imageWithWhiteSpace)
 
 

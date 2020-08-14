@@ -20,10 +20,11 @@ def dankcli():
 
 	url = request.json['URL']
 	text = request.json['Text']
+	c = request.json['COLOR']
 	
 	img = imageio.imread(url)
 	
-	plt.imsave(name,meme(img,text))
+	plt.imsave(name,meme(img,text,c))
 
 	link = upload("/.Generated/"+name,name)
 	return link
@@ -37,10 +38,11 @@ def mem_gen():
 	url = request.json['URL']
 	top_text = request.json['TOP']
 	bottom_text = request.json['BOTTOM']
+	c = request.json['COLOR']
 
 	img = imageio.imread(url)
 
-	plt.imsave(name,generate_meme(img,top_text,bottom_text))
+	plt.imsave(name,generate_meme(img,top_text,bottom_text,c))
 
 	link = upload("/.Generated/"+name,name)
 	

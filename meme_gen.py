@@ -4,7 +4,7 @@ import imageio
 import matplotlib.pyplot as plt
 import numpy as np
 
-def generate_meme(img, top_text='', bottom_text='', font_path='impact.ttf', font_size=9):
+def generate_meme(img, top_text='', bottom_text='', font_path='impact.ttf', font_size=9,c):
 	# load image
 	im = Image.fromarray(np.uint8(img))
 	draw = ImageDraw.Draw(im)
@@ -28,7 +28,7 @@ def generate_meme(img, top_text='', bottom_text='', font_path='impact.ttf', font
 	for line in top_lines:
 	    line_width, line_height = font.getsize(line)
 	    x = (image_width - line_width)/2
-	    draw.text((x,y), line, fill='black', font=font)
+	    draw.text((x,y), line, fill=c, font=font)
 	    y += line_height
 
 	# draw bottom lines
@@ -36,7 +36,7 @@ def generate_meme(img, top_text='', bottom_text='', font_path='impact.ttf', font
 	for line in bottom_lines:
 	    line_width, line_height = font.getsize(line)
 	    x = (image_width - line_width)/2
-	    draw.text((x,y), line, fill='black', font=font)
+	    draw.text((x,y), line, fill=c, font=font)
 	    y += line_height
 
 	# save meme
