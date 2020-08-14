@@ -86,7 +86,7 @@ def meme(img,text,c):
     font_path = os.path.join("arial.ttf")
     font = ImageFont.truetype(font_path, size=getFontSize(img))
     lines = textWrap(text,font,Width)
-    arr = ['D','E','F']
+    arr = ['D','E','F','f','d','e']
     space_color = "#FFFFFF"
     print(c[0],c[2],c[4])
     if c[1] in arr and c[3] in arr and c[5] in arr:
